@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Logout</title>
+</head>
+<body>
+<div class="container">
+    <div class="row justify-content-center">
+
+        <h3>You are now logged out</h3>
+
+
+    </div>
+</div>
+<div>
+    <a href="/login"> <button type="submit" class="btn btn-primary btn-lg btn-block login-button">Login</button> </a>
+</div>
+
+</body>
+<script>
+    localStorage.clear();
+    alert("LocalStorage borrado!");
+    setTimeout(function() {
+        window.location.replace("/login");
+    }, 5000);
+
+</script>
+</html>

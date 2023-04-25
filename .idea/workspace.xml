@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="ca43e904-d8e1-4af6-9ff0-1e52d68e1d6f" name="Default Changelist" comment="" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution>
+      <executable />
+    </execution>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="2NZNILDm6dmk6e6kxeKZ2ET7zW3" />
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../p3-mvc-node-socket-game" />
+    <property name="nodejs_interpreter_path" value="node" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="restartRequiresConfirmation" value="false" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\home\javaprojects\eclipse-projects\2023-03-01-jacobo-fullstack\p2-sala-juego\old" />
+      <recent name="D:\home\javaprojects\eclipse-projects\2023-03-01-jacobo-fullstack\p2-sala-juego\views" />
+      <recent name="D:\home\javaprojects\eclipse-projects\2023-03-01-jacobo-fullstack\p2-sala-juego" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\home\javaprojects\eclipse-projects\2023-03-01-jacobo-fullstack\p2-sala-juego\old" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="NodeJSConfigurationType" working-dir="$PROJECT_DIR$">
+      <method v="2" />
+    </configuration>
+    <configuration name="app.js" type="NodeJSConfigurationType" nameIsGenerated="true" path-to-js-file="app.js" working-dir="$PROJECT_DIR$">
+      <EXTENSION ID="com.jetbrains.nodejs.run.NodeJSStartBrowserRunConfigurationExtension">
+        <browser name="a7bb68e0-33c0-4d6f-a81a-aac1fdb870c8" with-js-debugger="true" />
+      </EXTENSION>
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="ca43e904-d8e1-4af6-9ff0-1e52d68e1d6f" name="Default Changelist" comment="" />
+      <created>1679867563830</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1679867563830</updated>
+      <workItem from="1679867565040" duration="6818000" />
+      <workItem from="1680036398256" duration="40163000" />
+      <workItem from="1680138782442" duration="3821000" />
+      <workItem from="1680173612391" duration="10000" />
+      <workItem from="1680178685449" duration="26528000" />
+      <workItem from="1680358463554" duration="7879000" />
+      <workItem from="1680460254071" duration="630000" />
+      <workItem from="1680562156736" duration="6469000" />
+      <workItem from="1680649945613" duration="22175000" />
+      <workItem from="1680872499673" duration="647000" />
+      <workItem from="1680906611104" duration="12000" />
+      <workItem from="1681729037436" duration="1206000" />
+      <workItem from="1681750436321" duration="945000" />
+      <workItem from="1681824833688" duration="232000" />
+      <workItem from="1681831945422" duration="14015000" />
+      <workItem from="1681931552993" duration="1004000" />
+      <workItem from="1682121744724" duration="8875000" />
+      <workItem from="1682335676094" duration="5495000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/old/login.js</url>
+          <line>91</line>
+          <option name="timeStamp" value="19" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/old/login.js</url>
+          <line>102</line>
+          <option name="timeStamp" value="20" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/views/juego.html</url>
+          <line>23</line>
+          <option name="timeStamp" value="37" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <watches-manager>
+      <configuration name="NodeJSConfigurationType">
+        <watch expression="url_path.split('.')[1]" language="JavaScript" />
+      </configuration>
+    </watches-manager>
+  </component>
+</project>

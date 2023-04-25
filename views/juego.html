@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <!--<link rel="stylesheet" href="http://localhost:3000/views/styles.css">-->
+
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+    <style type="text/css">
+        .sala { padding:10px;margin:10px; -moz-user-select:none; background-color: #FF6699; width:150px; height:300px; }
+    </style>
+    <script type="text/javascript">
+
+        function dragStart(ev) {
+            ev.dataTransfer.effectAllowed='move'; // copy, move or link
+            ev.dataTransfer.setData('text/html', ev.target.getAttribute('id'));
+            return true;
+        }
+        function dragEnter(ev) {
+            ev.preventDefault();
+            return true;
+        }
+        function dragOver(ev) {
+            ev.preventDefault();
+            return false;
+        }
+        function dragDrop(ev) {
+            // origen
+            var src = ev.dataTransfer.getData('text/html');
+            var origen=document.getElementById(src);
+
+            // borramos el contenedor del objeto <div clas="col"...para dejar espacio
+            document.getElementById(src).parentElement.remove();
+
+            // dejamos el origen en el destino
+            ev.target.appendChild(origen);
+            ev.stopPropagation();
+
+            // document.getElementById(src).id es "jerry" innerText tb es "jerry"
+            // ev.target.getAttribute('id') es "Sala1"
+
+            /* ORIGEN EL JUGADOR i
+            var x1=origen.getBoundingClientRect().x; var y1=origen.getBoundingClientRect().y;
+             DESTINO, LA SALA DE JUEGO CORRESPONDIENTE
+            var x2=document.getElementById(ev.target.getAttribute('id')).getBoundingClientRect().x;
+            var y2=document.getElementById(ev.target.getAttribute('id')).getBoundingClientRect().y;
+            */
+            addItem(origen.id,ev.target.getAttribute('id'));
+            return false;
+        }
+
+    </script>
+    <script>
+        function addItem(idItem1,idItem2) {
+            item = {"nombre": idItem1,"sala": idItem2};
+            items = localStorage.getItem("items");
+            if (items == null) {
+                items = [];
+            }
+            else {
+                items = JSON.parse(items);
+            }
+            items.push(item);
+            localStorage.setItem("items", JSON.stringify(items));
+            actualizaAsignaciones();
+        }
+    </script>
+</head>
+
+<body onload="hayLocalStorage()">
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+        <a class="navbar-brand" href="#"><%= producto %></a>
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item active">
+                <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/register">Register</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/login">Login</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/logout">Logout</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<!-- RECIBIMOS LOS DOS ARRAYS DE NODE (users y salas) Y LAS VARIABLES username, imagen-->
+<div class="container mt-4">
+    <div class="mt-4 p-5 bg-primary text-white rounded">
+        <h1>Hola <%= username %></h1>
+        <img src="<%= imagen %>" name="avatar" id="avatar" alt="avatar" width="80px">
+        <p> Pantalla principal de la app juego</p>
+    </div>
+    <div class="container p-3 my-3 bg-dark text-white">
+        <h4>Usuarios totales</h4>
+    </div>
+    <div id="usuarios" class="container p-3 my-3 border ">
+        <div id="usuarios-row" class="row" >
+            <% users.forEach(function(user){ %>
+            <div class="col" >
+                <div class="display: contents; position: absolute;"
+                     draggable="true" ondragstart="return dragStart(event)">
+
+                    <img src="<%= user.imagen %>" name="avatar" alt="avatar" width="80px"
+                         draggable="true" id="<%= user.username %>">
+                    <p style="margin-bottom: 0.2rem"><%= user.username %></p>
+                </div>
+            </div>
+            <% }); %>
+        </div>
+    </div>
+    <div is="salas" class="container p-3 my-3 border ">
+            <div id="salas-row" class="row" >
+            <% salas.forEach(function(sala){ %>
+            <div class="col" >
+                <div class="sala display: contents" id="<%= sala.name %>"
+                     ondragenter="return dragEnter(event)"
+                     ondrop="return dragDrop(event)"
+                     ondragover="return dragOver(event)">
+                    <p style="margin-bottom: 0.2rem"><%= sala.name %></p>
+                </div>
+            </div>
+            <% }); %>
+        </div>
+    </div>
+    <!-- TABLA INFERIOR PARA INDICAR LAS SUCESIVAS ASIGNACIONES DE usuario a sala de juego-->
+    <div id="items" hidden="hidden" class="container p-3 my-3 bg-dark text-white">
+        <span><button style="float:right" id="btnClearStorage" value="borrarDatos">borrar Datos</button>
+        <h4 id="estado">Usuarios asignados a salas</h4></span>
+        <table id="tablaItems"></table>
+    </div>
+</div>
+</body>
+<script>
+    //   B O R R A R   L O C A L S T O R A G E
+    document.getElementById("btnClearStorage").addEventListener('click', function(event) {
+        event.preventDefault();
+        // SI borramos localstorage devolvemos los usuarios a su lugar inicial
+        devolverItems();
+        // ahora se vacía el localstorage
+        localStorage.clear();
+        // ocultamos la tabla porque ya no hay asignaciones
+        document.getElementById("items").hidden=true;
+        document.getElementById("tablaItems").innerHTML="";
+        document.getElementById("estado").innerHTML="";
+    });
+
+    // C A R G A   D E   L O C A L S T O R A G E   en   items
+    function actualizaAsignaciones() {
+
+        if(localStorage.getItem("items") !== null) {
+            document.getElementById("items").hidden=false;
+            document.getElementById("estado").innerHTML="Usuarios asignados a salas";
+            // leemos los datos del localstorage en un array
+            var items = JSON.parse(localStorage.getItem("items"));
+
+            document.getElementById("tablaItems").innerHTML="";
+            tr0 = document.createElement("tr");
+            tr0.innerHTML="<th>Nombre</th><th>Sala</th>";
+            document.getElementById("tablaItems").appendChild(tr0);
+            items.forEach(function(item) {
+                // creamos dos columnas y una fila por cada item
+                tr = document.createElement("tr");
+                td1 = document.createElement("td");
+                td1.innerHTML = item.nombre;
+                td2 = document.createElement("td");
+                td2.innerHTML = item.sala;
+                tr.appendChild(td1);
+                tr.appendChild(td2);
+                document.getElementById("tablaItems").appendChild(tr);
+            });
+        } else {
+            document.getElementById("estado").innerHTML="No hay items asignados a salas";
+            document.getElementById("items").hidden=true;
+        }
+    }
+    function mostrarItems() {
+        if (localStorage.getItem("items") !== null) {
+            var items = JSON.parse(localStorage.getItem("items"));
+            actualizaAsignaciones();
+            items.forEach(function(item) {
+                //  importante: las asignaciones de cada item del localstorage deben ser colocadas en pantalla en el contenedor
+                // correspondiente en la sala asignada no en cualquier lugar
+                const node = document.getElementById(item.nombre);
+                // a la sala j le ponemos el usuario i
+                document.getElementById(item.sala).appendChild(node);
+            });
+        } else {
+            document.getElementById("estado").innerHTML="No hay items asignados a salas";
+            document.getElementById("items").hidden=true;
+        }
+    }
+    function devolverItems() {
+        var items = JSON.parse(localStorage.getItem("items"));
+        items.forEach(function(item) {
+            let div = document.createElement("div");
+            //div.id = "div_id" ; div.style = "background-color: red;"; div.style.width = "100px"; div.style.height = "100px";
+            div.className = "col";
+            div.appendChild(document.getElementById(item.nombre));
+
+            // importante: devolvemos el usuario i a su contenedor inicial que es el div cuyo id es usuarios-row
+            document.getElementById("usuarios-row").appendChild(div);
+        });
+    }
+
+    //   C O M P R O B A R   L O C A L S T O R A G E
+    function hayLocalStorage() {
+        try {
+            if ("localStorage" in window && window["localStorage"] !== null) {
+                mostrarItems();
+                return true;
+            }
+        } catch (e) {
+            alert("LocalStorage no disponible. No se presentan items.");
+            return false;
+        }
+    }
+</script>
+</html>

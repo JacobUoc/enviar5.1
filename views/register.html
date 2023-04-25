@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!--<link rel="stylesheet" href="http://localhost:3000/views/styles.css">-->
+    <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
+    <!--<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>-->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</head>
+
+<body class="p-3 m-0 border-0 bd-example">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+        <a class="navbar-brand" href="#"><%= producto %></a>
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item active">
+                <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/register">Register</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/login">Login</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/logout">Logout</a>
+            </li>
+        </ul>
+        <!--<form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>-->
+    </div>
+</nav>
+
+<!--<div class="container mt-4">
+    <div class="card" style="width: 18rem;">
+        <div class="card-header">Register Form</div>
+        <div class="card-body">
+            <form action="/register-submit" method="POST">
+                <div class="mb-3">
+                    <label for="name-reg" class="form-label">Nombre</label>
+                    <input type="text" class="form-control" id="name-reg" name="username"
+                    pattern="[a-z][A-Z]{1,15}" title="Usuario debe contener letras y hasta 15 caracteres. Ej. Juan">
+                </div>
+                <div class="mb-3">
+                    <label for="email-reg" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="email-reg" name="email">
+                </div>
+                <div class="mb-3">
+                    <label for="password-reg" class="form-label">Password</label>
+                    <input type="password" required class="form-control" id="password-reg" name="password">
+                </div>
+                <div class="mb-3">
+                    <label for="password-conf-reg" class="form-label">Confirmar Password</label>
+                    <input type="password" required class="form-control" id="password-conf-reg" name="password_confirm">
+                </div>
+
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+
+    </div>
+
+    <% if (message) { %>
+    <h4 class="alert alert-danger mt-4"><%= message %></h4>
+    <% } %>
+</div>-->
+
+<!-- https://getbootstrap.com/docs/4.0/components/forms/ -->
+<form class="row g-3 needs-validation was-validated"
+      novalidate="" id="bootstrapForm"
+      action="/register-submit" method="POST">
+    <!-- NOMBRE -->
+    <div class="col-md-4">
+        <label for="validationCustom01" class="form-label">Nombre</label>
+        <input type="text" class="form-control" id="validationCustom01" value="nombre" required=""
+               name="username">
+        <div class="valid-feedback">
+            ¡Válido!
+        </div>
+    </div>
+    <!-- AVATAR -->
+    <div class="col-md-3">
+        <label for="validationCustom04" class="form-label">Avatar</label>
+        <select class="custom-select" id="validationCustom02" required="" name="avatar">
+            <option selected="" disabled="" value="" >Elegir...</option>
+            <option value="./images/avatar1.jpg">avatar1</option>
+            <option value="./images/avatar2.jpg">avatar2</option>
+            <option value="./images/avatar3.jpg">avatar3</option>
+            <option value="./images/avatar4.jpg">avatar4</option>
+            <option value="./images/avatar5.jpg">avatar5</option>
+            <option value="./images/avatar6.jpg">avatar6</option>
+            <option value="./images/avatar7.jpg">avatar7</option>
+            <option value="./images/avatar8.jpg">avatar8</option>
+            <option value="./images/avatar9.jpg">avatar9</option>
+            <option value="./images/avatar10.jpg">avatar10</option>
+            <option value="./images/avatar11.jpg">avatar11</option>
+            <option value="./images/avatar12.jpg">avatar12</option>
+            <option value="./images/avatar13.jpg">avatar13</option>
+            <option value="./images/avatar14.jpg">avatar14</option>
+            <option value="./images/avatar15.jpg">avatar15</option>
+            <option value="./images/avatar16.jpg">avatar16</option>
+        </select>
+        <div class="invalid-feedback">
+            Seleccione un avatar válido.
+        </div>
+    </div>
+    <!-- EMAIL -->
+    <div class="col-md-3">
+        <label for="validationCustom05" class="form-label">Email</label>
+        <input type="email" class="form-control" id="validationCustom03" required=""
+               name="email">
+        <div class="invalid-feedback">
+            Proporcione un email válido.
+        </div>
+    </div>
+    <!-- PASSWORD -->
+    <div class="col-md-3">
+        <label for="validationCustom05" class="form-label">Password</label>
+        <input type="pasword" class="form-control" id="validationCustom04" required=""
+               name="password">
+        <div class="invalid-feedback">
+            Proporcione un password válido (4 cifras mínimo).
+        </div>
+    </div>
+    <div class="col-md-3">
+        <label for="validationCustom05" class="form-label">confirmar password</label>
+        <input type="pasword" class="form-control" id="validationCustom05" required=""
+               name="password_confirm">
+
+    </div>
+
+    <div class="col-12">
+        <button class="btn btn-primary" type="submit">Enviar formulario</button>
+    </div>
+</form>
+<script>
+    // adapted from https://www.codeply.com/go/mhkMGnGgZo/bootstrap-4-validation-example
+
+    $("#bootstrapForm").submit(function(event) {
+
+        // make selected form variable
+        var vForm = $(this);
+
+        /*
+        If not valid prevent form submit
+        https://developer.mozilla.org/en-US/docs/Web/API/HTMLSelectElement/checkValidity
+        */
+        if (vForm[0].checkValidity() === false) {
+            event.preventDefault()
+            event.stopPropagation()
+            $(vForm[0]).find(':input').each(function() {
+             if ($(this).val()==='') {
+                 $(this).fadeOut(2000);
+                 $(this).fadeIn();
+              } else { }
+            });
+        } else {
+            alert("Su formulario es válido.");
+        }
+
+        // Add bootstrap 4 was-validated classes to trigger validation messages
+        vForm.addClass('was-validated');
+
+
+    });
+
+</script>
+
+</body>
+</html>
